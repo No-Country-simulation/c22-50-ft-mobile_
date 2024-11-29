@@ -5,6 +5,6 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class InversorDTO(
-    @Json(name = "usuario_id")val usuarioId: Int,
-    @Json(name = "fondos_disponibles") val fondosDisp: Double
-): MensajeDTO()
+    @Json(name = "usuario_id")val usuarioId: Int?,
+    @Json(name = "fondos_disponibles") val fondosDisp: Double?
+): TablaDTO()

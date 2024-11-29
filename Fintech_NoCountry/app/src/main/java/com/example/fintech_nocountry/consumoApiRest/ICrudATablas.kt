@@ -1,7 +1,9 @@
 package com.example.fintech_nocountry.consumoApiRest
 
-import com.example.fintech_nocountry.consumoApiRest.dto.MensajeDTO
+import com.example.fintech_nocountry.consumoApiRest.dto.TablaDTO
+import org.json.JSONObject
 import retrofit2.Call
+import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
@@ -14,17 +16,20 @@ interface ICrudATablas {
     @GET("{tabla}")
     fun getEnTabla(@Path("tabla") tabla: String,
                    @Query("condicion") condicion: String,
-                   @Query("columnas") columnas: String): Call<List<MensajeDTO>>
+                   @Query("columnas") columnas: String): Call<List<TablaDTO>>
 
     @POST("{tabla}")
-    fun postEnTabla(@Path("tabla") tabla: String): Call<MensajeDTO>
+    fun postEnTabla(@Path("tabla") tabla: String,
+                    @Body columnasYValores: Map<String, String>
+    ): Call<TablaDTO>
 
     @PUT("{tabla}")
-    fun putEnTabla(@Path("tabla") tabla: String): Call<MensajeDTO>
+    fun putEnTabla(@Path("tabla") tabla: String,
+                   @Body settersYCondicion: Map<String, String>): Call<TablaDTO>
 
     @DELETE("{tabla}")
     fun deleteEnTabla(@Path("tabla") tabla: String,
-                      @Query("condicion") condicion: String): Call<MensajeDTO>
+                      @Query("condicion") condicion: String): Call<TablaDTO>
 
 
 }

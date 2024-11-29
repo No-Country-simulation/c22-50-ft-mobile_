@@ -5,6 +5,6 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class EtiquetaDTO(
-    val descripcion: String,
-    @Json(name = "crowdfunding_id") val crowdfundingId: Int
-): MensajeDTO()
+    val descripcion: String?,
+    @Json(name = "crowdfunding_id") val crowdfundingId: Int?
+): TablaDTO()

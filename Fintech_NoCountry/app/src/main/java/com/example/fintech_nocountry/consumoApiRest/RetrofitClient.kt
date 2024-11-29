@@ -7,6 +7,7 @@ import com.example.fintech_nocountry.consumoApiRest.dto.EtiquetaDTO
 import com.example.fintech_nocountry.consumoApiRest.dto.InversionDTO
 import com.example.fintech_nocountry.consumoApiRest.dto.InversorDTO
 import com.example.fintech_nocountry.consumoApiRest.dto.MensajeDTO
+import com.example.fintech_nocountry.consumoApiRest.dto.TablaDTO
 import com.example.fintech_nocountry.consumoApiRest.dto.SolicitudDTO
 import com.example.fintech_nocountry.consumoApiRest.dto.UsuarioDTO
 import com.squareup.moshi.Moshi
@@ -26,7 +27,7 @@ object RetrofitClient {
     que agregar el subtipo correspondiente junto con un string que lo identifique
      */
     private val moshi = Moshi.Builder()
-            .add(PolymorphicJsonAdapterFactory.of(MensajeDTO::class.java, "type")
+        .add(PolymorphicJsonAdapterFactory.of(TablaDTO::class.java, "type")
             .withSubtype(UsuarioDTO::class.java, "usuario")
             .withSubtype(InversorDTO::class.java, "inversor")
             .withSubtype(EmprendedorDTO::class.java, "emprendedor")
@@ -36,7 +37,7 @@ object RetrofitClient {
             .withSubtype(EtiquetaDTO::class.java, "etiqueta")
             .withSubtype(InversionDTO::class.java, "inversion")
             .withSubtype(MensajeDTO::class.java, "mensaje")
-            )
+        )
         .add(KotlinJsonAdapterFactory())
         .build()
     val retrofit: Retrofit = Retrofit.Builder()
