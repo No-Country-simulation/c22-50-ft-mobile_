@@ -10,14 +10,12 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.fintech_nocountry.consumoApiRest.ICrudATablas
 import com.example.fintech_nocountry.consumoApiRest.RetrofitClient
-import com.example.fintech_nocountry.consumoApiRest.dto.MensajeDTO
 import com.example.fintech_nocountry.consumoApiRest.dto.TablaDTO
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
-
+    /* Esta activity se puede borrar. Solo es para probar la api*/
     lateinit var etQuery: EditText
     lateinit var tvJson: TextView
     lateinit var btnEjecutar: Button
@@ -37,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         tvJson = findViewById(R.id.tvJson)
         btnEjecutar = findViewById(R.id.btnEjecutar)
 
-        btnEjecutar.setOnClickListener{
+        /*btnEjecutar.setOnClickListener{
             val segmentos = etQuery.text.toString().split("%")
 
             if(segmentos.size >= 3){
@@ -72,6 +70,6 @@ class MainActivity : AppCompatActivity() {
             }
 
 
-        }
+        }*/
     }
 }

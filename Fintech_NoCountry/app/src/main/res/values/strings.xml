@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Fintech_NoCountry</string>
+
+    <string name="home_titulo">Apoya un Emprendimiento</string>
+
+    <string name="lorem_ipsum_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget tempor ipsum. Integer facilisis purus in magna imperdiet, eget commodo dui efficitur. Suspendisse eu tortor suscipit, consequat libero eget, feugiat nunc. Pellentesque egestas tempor metus, at blandit odio cursus in. Phasellus imperdiet, leo vel eleifend gravida, erat lorem interdum arcu, nec vestibulum eros purus ut ipsum. Nunc sollicitudin lobortis massa vel mattis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget eleifend nisi. Nulla feugiat ornare mi at ornare. Proin nec ligula nec erat faucibus pellentesque. Nulla et justo mattis nulla sodales pulvinar. Suspendisse dignissim, tellus vel fringilla aliquet, orci ipsum tincidunt mi, non interdum sapien sapien ac metus. Donec semper pharetra est. Etiam in lorem gravida, luctus arcu eu, pretium lorem. Donec fringilla leo sed tellus auctor vestibulum ut eget turpis. Nunc tempor nunc et odio gravida, non vestibulum tortor faucibus.\n\n<n>      </n>Pellentesque porttitor dignissim augue, sit amet consectetur ex dapibus pretium. Pellentesque ullamcorper suscipit sollicitudin. Maecenas eget nisl at ex maximus aliquet et in dolor. Maecenas lacinia felis nisi, fringilla iaculis velit tincidunt in. Phasellus vel felis faucibus, euismod ipsum non, dapibus arcu. Vivamus imperdiet mi sit amet rutrum mattis. Praesent luctus felis augue, non venenatis sem aliquet ut. Aliquam sed justo id augue vehicula mattis et in arcu. Integer velit augue, varius vel mollis eget, dignissim at nulla. Nulla ut gravida velit. Vestibulum vel nisi luctus, accumsan neque sed, pretium mi. Donec feugiat arcu id tempor placerat.</string>
+
+    <string name="lorem_ipsum_title">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</string>
+
+    <string name="crowd_restantes">DÍAS MÁS</string>
+    <string name="crowd_financiado">FINANCIADO</string>
+    <string name="crowd_recaudado">RECAUDADO</string>
+
 </resources>

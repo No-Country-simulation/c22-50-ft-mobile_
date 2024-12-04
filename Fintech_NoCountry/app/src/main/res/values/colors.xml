@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="Primary950">#17263A</color>
+    <color name="etiquetaSinSeleccion">#C9DBEE</color>
+    <color name="gris_claro">#747476</color>
+    <color name="Secundary400">#FAEC15</color>
+    <color name="Black900">#3D3D3D</color>
+    <color name="Black500">#6D6D6D</color>
+    <color name="Black050">#F6F6F6</color>
+
 </resources>

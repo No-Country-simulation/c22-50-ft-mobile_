@@ -14,22 +14,22 @@ import retrofit2.http.Query
 interface ICrudATablas {
 
     @GET("{tabla}")
-    fun getEnTabla(@Path("tabla") tabla: String,
+    suspend fun getEnTabla(@Path("tabla") tabla: String,
                    @Query("condicion") condicion: String,
-                   @Query("columnas") columnas: String): Call<List<TablaDTO>>
+                   @Query("columnas") columnas: String): List<TablaDTO>
 
     @POST("{tabla}")
-    fun postEnTabla(@Path("tabla") tabla: String,
+    suspend fun postEnTabla(@Path("tabla") tabla: String,
                     @Body columnasYValores: Map<String, String>
-    ): Call<TablaDTO>
+    ): TablaDTO
 
     @PUT("{tabla}")
-    fun putEnTabla(@Path("tabla") tabla: String,
-                   @Body settersYCondicion: Map<String, String>): Call<TablaDTO>
+    suspend fun putEnTabla(@Path("tabla") tabla: String,
+                   @Body settersYCondicion: Map<String, String>): TablaDTO
 
     @DELETE("{tabla}")
-    fun deleteEnTabla(@Path("tabla") tabla: String,
-                      @Query("condicion") condicion: String): Call<TablaDTO>
+    suspend fun deleteEnTabla(@Path("tabla") tabla: String,
+                      @Query("condicion") condicion: String): TablaDTO
 
 
 }

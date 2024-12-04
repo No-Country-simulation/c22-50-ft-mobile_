@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -55,6 +56,8 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0") // Corrutinas
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.0") // Corrutinas para Android
+
+    implementation("com.google.android.material:material:1.2.0") //Navigation bar
 
 
 }
