@@ -2,16 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/item_agregar1"
-        android:title="Agregar"
-        app:showAsAction="always"
+        android:id="@+id/perfil_mas"
+        android:title=""
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/mas_icono"
         />
-        <!-- android:icon="@drawable/" -->
+
 
     <item
-        android:id="@+id/item_agregar2"
-        android:title="Agregar"
+        android:id="@+id/foto_perfil"
+        android:title=""
         app:showAsAction="always"
+        android:icon="@drawable/perfil_icono"
         />
-        <!-- android:icon="@drawable/" -->
+
 </menu>

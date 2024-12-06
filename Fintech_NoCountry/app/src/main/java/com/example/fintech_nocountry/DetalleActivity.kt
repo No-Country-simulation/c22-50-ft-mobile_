@@ -17,6 +17,8 @@ import com.example.fintech_nocountry.consumoApiRest.RetrofitClient
 import com.example.fintech_nocountry.consumoApiRest.dto.CrowdfundingDTO
 import com.example.fintech_nocountry.consumoApiRest.dto.InversionDTO
 import com.example.fintech_nocountry.consumoApiRest.dto.MensajeDTO
+import com.example.fintech_nocountry.consumoApiRest.dto.UsuarioDTO
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -74,6 +76,11 @@ class DetalleActivity : AppCompatActivity() {
         btnVolver.setOnClickListener{
             finish()
         }
+
+        btnContactar.setOnClickListener{
+            val form = FormularioBottomSheetFragment()
+                form.show(supportFragmentManager, form.tag)
+        }
     }
 
     private fun cargarViews(crowdfunding: CrowdfundingDTO?){
@@ -85,6 +92,15 @@ class DetalleActivity : AppCompatActivity() {
             progressBar.progress = crowdfunding.calcularPorcentajeActual()
             tvPorcentajeFinanciado.text = "${crowdfunding.calcularPorcentajeActual()}%"
             cargarCantidadInversores(crowdfunding)
+            cargarNombreEmprendedor(crowdfunding)
+            try{
+                Picasso
+                    .get()
+                    .load(crowdfunding.imagenUrl)
+                    .into(imagen)
+            } catch(e: Exception){
+                    Log.e("PicassoError", e.message!!)
+            }
         }
         catch (e: Exception)
         {
@@ -108,6 +124,23 @@ class DetalleActivity : AppCompatActivity() {
             }
             catch (e: Exception)
             {
+                Log.e("ApiError", e.message!!)
+            }
+        }
+    }
+
+    private fun cargarNombreEmprendedor(crowdfunding: CrowdfundingDTO?){
+        CoroutineScope(Dispatchers.IO).launch {
+            try{
+                val response = api!!.getEnTabla("usuario", "id = ${crowdfunding!!.id}", "nombre")
+
+                withContext(Dispatchers.Main){
+                    if(response.isEmpty() || (response[0] is MensajeDTO))
+                        Log.e("ApiError", (response[0] as MensajeDTO).message!!)
+                    else
+                        tvNombreEmprendedor.text = "Por" + (response[0] as UsuarioDTO).nombre
+                }
+            } catch (e: Exception){
                 Log.e("ApiError", e.message!!)
             }
         }

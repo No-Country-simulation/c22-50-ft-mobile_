@@ -27,18 +27,6 @@
             />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignEnd="@+id/item_crowd_imagen"
-            android:id="@+id/item_crowd_inversionmin"
-            android:text="a partir de 150usd"
-            android:layout_alignTop="@id/item_crowd_imagen"
-            android:background="@drawable/etiqueta_redondeada"
-            android:layout_margin="25dp"
-            />
-
-        <TextView
             android:id="@+id/item_crowd_titulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

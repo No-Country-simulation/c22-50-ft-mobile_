@@ -5,14 +5,18 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fintech_nocountry.HomeActivity
 import com.example.fintech_nocountry.R
 import com.example.fintech_nocountry.consumoApiRest.dto.EtiquetaDTO
 
 class EtiquetaAdapter(private var lstEtiquetas: MutableList<EtiquetaDTO>,
-                      private var context: Context)
+                      private var context: Context,
+                      var onEtiquetaClick: (() -> Unit)? = null
+    )
     : RecyclerView.Adapter<EtiquetaViewholder>(){
 
-    private val seleccionados = mutableSetOf<EtiquetaDTO>()
+    val seleccionados = mutableSetOf<EtiquetaDTO>()
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EtiquetaViewholder {
         return EtiquetaViewholder(
@@ -46,5 +50,6 @@ class EtiquetaAdapter(private var lstEtiquetas: MutableList<EtiquetaDTO>,
             holder.descripcion.setTextColor(ContextCompat.getColor(context, R.color.black))
             seleccionados.remove(etiqueta)
         }
+        onEtiquetaClick?.invoke()
     }
 }

@@ -18,7 +18,8 @@ data class CrowdfundingDTO(
     val estado: EstadoCrowd?,
     @Json(name = "fecha_creacion") val fechaCreacion: String?,
     @Json(name = "fecha_finalizacion") val fechaFinalizacion: String?,
-    @Json(name = "emprendedor_id") val emprendedorId: Int?
+    @Json(name = "emprendedor_id") val emprendedorId: Int?,
+    @Json(name = "url_imagen") val imagenUrl: String?
 ): TablaDTO(), Parcelable
 {
     fun calcularDiasRestantes(): Long {

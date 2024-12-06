@@ -12,7 +12,6 @@ class CrowdfundingViewholder(view: View): RecyclerView.ViewHolder(view) {
     var imagen: ImageView = view.findViewById(R.id.item_crowd_imagen)
     var titulo: TextView = view.findViewById(R.id.item_crowd_titulo)
     var progressBar: ProgressBar = view.findViewById(R.id.item_crowd_progressbar)
-    var inversionMinima: TextView = view.findViewById(R.id.item_crowd_inversionmin)
     var recaudado: TextView = view.findViewById(R.id.item_crowd_recaudado)
     var porcentaje: TextView = view.findViewById(R.id.item_crowd_porcentaje)
     var tiempoRestante: TextView = view.findViewById(R.id.item_crowd_tiemporestante)

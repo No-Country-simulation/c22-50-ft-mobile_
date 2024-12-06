@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- bottom_sheet_form.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        android:layout_marginVertical="25dp"
+        >
+
+        <EditText
+            android:id="@+id/contactar_asunto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Asunto de consulta"
+            android:textSize="16sp"
+            android:padding="10dp"
+            android:background="@color/Black100"
+            android:textColor="@color/Black400"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        android:layout_marginVertical="25dp"
+        >
+
+        <EditText
+            android:id="@+id/contactar_mensaje"
+            android:layout_width="match_parent"
+            android:layout_height="163dp"
+            android:hint="Mensaje al emprendedor"
+            android:textSize="16sp"
+            android:padding="10dp"
+            android:background="@color/Black100"
+            android:textColor="@color/Black400"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/contactar_enviar"
+        android:text="Contactar Emprendedor"
+        android:layout_below="@id/detalle_nombre_emprendedor"
+        android:layout_marginVertical="25dp"
+        android:backgroundTint="@color/Primary950"
+        android:textColor="@color/white"
+        android:typeface="sans"/>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:contentDescription="TODO"
+        android:src="@drawable/sticker_tick"
+        android:padding="5dp"
+        android:cropToPadding="true"
+        android:id="@+id/contacto_imagen_enviado"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/contacto_titulo_enviado"
+        android:text="@string/contacto_titulo"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="26sp"
+        android:layout_marginVertical="15dp"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:layout_width="226dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/contacto_texto_enviado"
+        android:text="@string/contacto_texto"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/Black400"
+        android:visibility="gone"
+        />
+
+</LinearLayout>

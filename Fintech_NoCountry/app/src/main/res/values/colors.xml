@@ -10,5 +10,7 @@
     <color name="Black900">#3D3D3D</color>
     <color name="Black500">#6D6D6D</color>
     <color name="Black050">#F6F6F6</color>
+    <color name="Black400">#888888</color>
+    <color name="Black100">#F7F8F9</color>
 
 </resources>

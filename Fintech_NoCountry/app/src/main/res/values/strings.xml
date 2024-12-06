@@ -10,5 +10,6 @@
     <string name="crowd_restantes">DÍAS MÁS</string>
     <string name="crowd_financiado">FINANCIADO</string>
     <string name="crowd_recaudado">RECAUDADO</string>
-
+    <string name="contacto_titulo">Mensaje enviado</string>
+    <string name="contacto_texto">El emprendedor se pondrá en contacto contigo</string>
 </resources>

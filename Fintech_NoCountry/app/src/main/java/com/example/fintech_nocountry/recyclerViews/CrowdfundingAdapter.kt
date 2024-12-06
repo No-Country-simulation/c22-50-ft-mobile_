@@ -2,12 +2,17 @@ package com.example.fintech_nocountry.recyclerViews
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fintech_nocountry.DetalleActivity
 import com.example.fintech_nocountry.R
 import com.example.fintech_nocountry.consumoApiRest.dto.CrowdfundingDTO
+import com.squareup.picasso.Picasso
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class CrowdfundingAdapter(
     private var lstCrowdfundings: MutableList<CrowdfundingDTO>,
@@ -32,8 +37,6 @@ class CrowdfundingAdapter(
         holder.porcentaje.text = "${item.calcularPorcentajeActual()}%"
         holder.tiempoRestante.text = "${item.calcularDiasRestantes()}"
         holder.progressBar.progress = item.calcularPorcentajeActual()
-        //holder.inversionMinima.text = item.inversionMin TODO
-        //holder.imagen = item.urlImagen TODO
 
         holder.layout.setOnClickListener{
             context.startActivity(
@@ -41,6 +44,14 @@ class CrowdfundingAdapter(
                     .putExtra("crowdfunding", item)
             )
         }
+         try{
+                Picasso
+                    .get()
+                    .load(item.imagenUrl)
+                    .into(holder.imagen)
+         } catch(e: Exception){
+                Log.e("PicassoError", e.message!!)
+            }
     }
 
 }
