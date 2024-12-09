@@ -69,7 +69,8 @@ class MenuPerfilActivity : AppCompatActivity() {
                 }
                 R.id.item_cerrar_sesion -> {
                     sharedPreferences.edit().clear().apply()
-                    startActivity(Intent(this, LoginActivity::class.java))
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finishAffinity()
                     finish()
                     true
                 }

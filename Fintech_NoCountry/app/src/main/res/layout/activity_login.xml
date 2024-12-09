@@ -92,6 +92,16 @@
 
     </LinearLayout>
 
+    <ProgressBar
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/login_progressbar"
+        android:indeterminate="true"
+        android:layout_below="@id/login_layout"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        />
+
     <ImageButton
         android:layout_width="50dp"
         android:layout_height="50dp"

@@ -4,9 +4,11 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -31,6 +33,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var tvRegistrarse: TextView
     lateinit var btnVolver: ImageButton
     lateinit var sharedPreferences: SharedPreferences
+    lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +51,7 @@ class LoginActivity : AppCompatActivity() {
         btnVolver = findViewById(R.id.login_volver)
         tvRegistrarse = findViewById(R.id.login_registrarse)
         sharedPreferences = getSharedPreferences("datos_usuario", MODE_PRIVATE)
+        progressBar = findViewById(R.id.login_progressbar)
 
         if(sharedPreferences.getString("correo", null) != null){
             startActivity(
@@ -68,6 +72,7 @@ class LoginActivity : AppCompatActivity() {
         btnLogin.setOnClickListener{
             if(etEmail.text.toString().isNotEmpty() && etContrasenia.text.toString().isNotEmpty()){
                 if(Correo.esEmailValido(etEmail.text.toString())) {
+                    progressBar.visibility = View.VISIBLE
                     CoroutineScope(Dispatchers.IO).launch{
                         val usuario = Correo.verificarDatos(etEmail.text.toString(), etContrasenia.text.toString())
 
@@ -85,6 +90,7 @@ class LoginActivity : AppCompatActivity() {
                                     "Datos incorrectos, vuelva a intentar",
                                     Toast.LENGTH_SHORT)
                                     .show()
+                            progressBar.visibility = View.GONE
                         }
                     }
                 }

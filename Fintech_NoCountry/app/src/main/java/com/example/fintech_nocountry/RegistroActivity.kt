@@ -3,9 +3,11 @@ package com.example.fintech_nocountry
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -26,6 +28,7 @@ class RegistroActivity : AppCompatActivity() {
     lateinit var btnRegistrar: Button
     lateinit var btnVolver: ImageButton
     lateinit var tvLogin: TextView
+    lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +47,7 @@ class RegistroActivity : AppCompatActivity() {
         btnRegistrar = findViewById(R.id.register_registar)
         btnVolver = findViewById(R.id.register_volver)
         tvLogin = findViewById(R.id.register_login)
+        progressBar = findViewById(R.id.register_progressbar)
 
         btnVolver.setOnClickListener{
             finish()
@@ -61,8 +65,9 @@ class RegistroActivity : AppCompatActivity() {
             else if(etContrasenia.text.toString() != etRepetirContra.text.toString())
                 Toast.makeText(this, "La contraseñas no coinciden. Vuelva a ingresar", Toast.LENGTH_SHORT).show()
             else{
+                progressBar.visibility = View.VISIBLE
                 CoroutineScope(Dispatchers.IO).launch {
-                    if(Correo.datosRepetidos(etCorreo.text.toString()))
+                    if(Correo.datosRepetidos(etCorreo.text.toString(), this@RegistroActivity))
                         Log.e("DatosRepetidos", "Ya existe un usuario con ese correo")
                     else {
                         Correo.insertarUsuario(
@@ -82,6 +87,7 @@ class RegistroActivity : AppCompatActivity() {
                         }
                     }
                 }
+                progressBar.visibility = View.GONE
             }
         }
 

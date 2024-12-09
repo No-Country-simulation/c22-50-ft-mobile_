@@ -1,10 +1,14 @@
 package com.example.fintech_nocountry
 
+import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import com.example.fintech_nocountry.consumoApiRest.ICrudATablas
 import com.example.fintech_nocountry.consumoApiRest.RetrofitClient
 import com.example.fintech_nocountry.consumoApiRest.dto.MensajeDTO
 import com.example.fintech_nocountry.consumoApiRest.dto.UsuarioDTO
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 
 object Correo {
     private val api = RetrofitClient.retrofit.create(ICrudATablas::class.java)
@@ -35,17 +39,18 @@ object Correo {
         return usuarioDTO
     }
 
-    suspend fun datosRepetidos(email: String): Boolean{
+    suspend fun datosRepetidos(email: String, context: Context): Boolean{
         var flag = true
         try{
             val response = api.getEnTabla(
                 "usuario",
                 "correo = '$email'",
                 "*")
-            if(response.isEmpty())
+            if( response[0] is MensajeDTO
+                && (response[0] as MensajeDTO).message!! == "No hay coincidencias")
                  flag = false
-            else if(response.isNotEmpty() && response[0] is MensajeDTO)
-                Log.e("ApiError", (response[0] as MensajeDTO).message!!)
+            else
+                MainScope().launch {Toast.makeText(context, "Ya existe un usuario con ese correo", Toast.LENGTH_SHORT).show()}
         } catch (e: Exception){
             Log.e("ApiError", e.message!!)
         }
@@ -55,12 +60,11 @@ object Correo {
     suspend fun insertarUsuario(email: String, contrasenia: String, nombre: String){
         try{
             val map = mapOf(
-                "correo" to email,
-                "contrasenia" to contrasenia,
-                "nombre" to nombre
+                "valores" to "'$email', '$contrasenia', '$nombre'",
+                "columnas" to "correo, contrasenia, nombre"
             )
             val response = api.postEnTabla("usuario", map)
-            Log.e("Api", (response as MensajeDTO).message!!)
+            Log.i("Api", (response as MensajeDTO).message!!)
         } catch (e: Exception){
             Log.e("ApiError", e.message!!)
         }
