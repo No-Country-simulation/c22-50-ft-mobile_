@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistroActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¡Hola! Regístrate para comenzar"
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="@color/Black900"
+        android:layout_marginTop="100dp"
+        android:id="@+id/register_titulo"
+        android:paddingHorizontal="30dp"
+        android:layout_marginBottom="50dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register_titulo"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:id="@+id/register_layout"
+        android:layout_marginHorizontal="10dp"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            android:layout_marginVertical="10dp"
+            >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:background="@color/Black100"
+                android:inputType="textEmailAddress"
+                android:hint="Nombre"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:padding="10dp"
+                android:id="@+id/register_nombre"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            android:layout_marginVertical="10dp"
+            >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:background="@color/Black100"
+                android:inputType="textEmailAddress"
+                android:hint="Email"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:padding="10dp"
+                android:id="@+id/register_email"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            android:layout_marginVertical="10dp"
+            >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:background="@color/Black100"
+                android:inputType="textPassword"
+                android:hint="Contraseña"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:padding="10dp"
+                android:id="@+id/register_contrasenia"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            android:layout_marginVertical="10dp"
+            >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:background="@color/Black100"
+                android:inputType="textPassword"
+                android:hint="Confirmar contraseña"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:padding="10dp"
+                android:id="@+id/register_confirmar_contrasenia"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/register_registar"
+            android:text="Registrar"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/boton_redondeado"
+            android:backgroundTint="@color/Primary950"
+            android:textColor="@color/white"
+            android:typeface="sans"
+            />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="25dp"
+        android:contentDescription="Volver"
+        android:src="@drawable/baseline_arrow_back"
+        android:id="@+id/register_volver"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:paddingEnd="20dp"
+        android:paddingStart="20dp"
+        android:background="@drawable/boton_redondeado" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginVertical="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ya tienes una cuenta?"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Inicia sesión"
+            android:id="@+id/register_login"
+            android:textColor="@color/Primary950"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -78,7 +78,7 @@ class DetalleActivity : AppCompatActivity() {
         }
 
         btnContactar.setOnClickListener{
-            val form = FormularioBottomSheetFragment()
+            val form = ContactarBottomSheetFragment()
                 form.show(supportFragmentManager, form.tag)
         }
     }

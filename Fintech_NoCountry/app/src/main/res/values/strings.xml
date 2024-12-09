@@ -12,4 +12,10 @@
     <string name="crowd_recaudado">RECAUDADO</string>
     <string name="contacto_titulo">Mensaje enviado</string>
     <string name="contacto_texto">El emprendedor se pondrá en contacto contigo</string>
+
+    <string name="menu_perfil">Perfil</string>
+    <string name="menu_campanias">Mis campañas</string>
+
+    <string name="form_titulo">Solicitud enviada</string>
+    <string name="form_texto">Un administrador evaluará tu solicitud</string>
 </resources>

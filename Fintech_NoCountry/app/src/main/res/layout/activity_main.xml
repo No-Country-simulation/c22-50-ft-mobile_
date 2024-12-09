@@ -1,39 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical">
-    <!-- TODO ESTO SE PUEDE BORRAR -->
-    <EditText
+    android:orientation="vertical"
+    android:background="@drawable/fondo_inicio"
+    >
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/icono_app"
+        android:cropToPadding="true"
+        android:padding="1dp"
+        android:id="@+id/main_icono"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/main_titulo"
+        android:layout_below="@id/main_icono"
+        android:layout_centerHorizontal="true"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nova"
+            android:textStyle="bold"
+            android:textSize="40sp"
+            android:textColor="@color/Primary950"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fund"
+            android:textSize="40sp"
+            android:textColor="@color/Primary950"
+            />
+
+    </LinearLayout>
+
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese un id"
-        android:textAlignment="center"
-        android:textSize="15sp"
-        android:id = "@+id/etId"
-        android:layout_gravity="center"
+        android:id="@+id/main_login"
+        android:text="Iniciar sesión"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/boton_redondeado"
+        android:backgroundTint="@color/Primary950"
+        android:textColor="@color/white"
+        android:typeface="sans"
+        android:layout_below="@id/main_titulo"
+        android:layout_marginHorizontal="20dp"
         />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnEjecutar"
-        android:text="Ejecutar Query"
-        android:layout_gravity="center"
-        />
-
-    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="La query a ingresar debe estar delimitada por '%',donde el primer segmento es la tabla a consultar, el segundo son las condiciones del WHERE y el tercero son las columnas a traer"
-        android:textAlignment="center"
-        android:textSize="15sp"
-        android:id = "@+id/tvJson"
-        android:layout_gravity="center"
+        android:id="@+id/main_registrar"
+        android:text="Registrarme"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/boton_redondeado"
+        android:textColor="@color/Primary950"
+        android:typeface="sans"
+        android:layout_below="@id/main_login"
+        android:layout_marginHorizontal="20dp"
         />
 
-</LinearLayout>
+</RelativeLayout>

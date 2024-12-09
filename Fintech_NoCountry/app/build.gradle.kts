@@ -57,5 +57,6 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.0") // Corrutinas para Android
     implementation("com.google.android.material:material:1.2.0") //Navigation bar
     implementation("com.squareup.picasso:picasso:2.8") //Picasso
-
+    implementation("androidx.appcompat:appcompat:1.3.1") //Nav Drawer
+    implementation("de.hdodenhof:circleimageview:3.1.0") //ImageView circulares
 }

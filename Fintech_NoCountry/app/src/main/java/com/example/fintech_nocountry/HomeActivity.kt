@@ -1,6 +1,8 @@
 package com.example.fintech_nocountry
 
 import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
@@ -25,6 +27,7 @@ import com.example.fintech_nocountry.consumoApiRest.dto.EtiquetaDTO
 import com.example.fintech_nocountry.consumoApiRest.dto.MensajeDTO
 import com.example.fintech_nocountry.recyclerViews.CrowdfundingAdapter
 import com.example.fintech_nocountry.recyclerViews.EtiquetaAdapter
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -39,6 +42,7 @@ class HomeActivity : AppCompatActivity() {
     lateinit var rvCrowdfundings: RecyclerView
     lateinit var rvEtiquetas: RecyclerView
     private val api: ICrudATablas? = RetrofitClient.retrofit.create(ICrudATablas::class.java)
+    lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +58,7 @@ class HomeActivity : AppCompatActivity() {
         rvCrowdfundings = findViewById(R.id.rv_home_lstcrowdfundings)
         toolbar = findViewById(R.id.home_toolbar)
         tvTitulo = findViewById(R.id.tv_home_titulo)
+        sharedPreferences = getSharedPreferences("datos_usuario", MODE_PRIVATE)
 
         val titulo = SpannableString( getString(R.string.home_titulo) )
         titulo.setSpan(ForegroundColorSpan(ContextCompat.getColor(this, R.color.black)), 9,
@@ -62,7 +67,18 @@ class HomeActivity : AppCompatActivity() {
         tvTitulo.text = titulo
 
         setSupportActionBar(toolbar)
-        supportActionBar?.title = ""
+
+        val saludoToolbar = SpannableString(
+            if(sharedPreferences.getString("nombre", null) != null)
+                "¡Hola ${sharedPreferences.getString("nombre", null)}!"
+            else ""
+        )
+        saludoToolbar.setSpan(ForegroundColorSpan(
+            ContextCompat.getColor(this, R.color.Primary950)),
+            0,
+            saludoToolbar.length,
+            0)
+        supportActionBar?.title = saludoToolbar
 
         rvEtiquetas.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
@@ -136,7 +152,10 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-
+            R.id.perfil_mas -> {
+                startActivity(Intent(this, MenuPerfilActivity::class.java))
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

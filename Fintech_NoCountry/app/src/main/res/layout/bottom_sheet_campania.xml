@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/form_campania_layout_formulario"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            android:layout_marginVertical="5dp"
+            >
+
+            <EditText
+                android:id="@+id/form_campania_titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Título de la campaña"
+                android:textSize="16sp"
+                android:padding="10dp"
+                android:background="@color/Black100"
+                android:textColor="@color/Black400"
+                android:inputType="text"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            android:layout_marginVertical="5dp"
+            >
+
+            <EditText
+                android:id="@+id/form_campania_descripcion"
+                android:layout_width="match_parent"
+                android:layout_height="163dp"
+                android:hint="Descripción"
+                android:textSize="16sp"
+                android:padding="10dp"
+                android:background="@color/Black100"
+                android:textColor="@color/Black400"
+                android:inputType="text"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            android:layout_marginVertical="5dp"
+            >
+
+            <EditText
+                android:id="@+id/form_campania_fecha_finalizacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Fecha de cierre de la campaña"
+                android:textSize="16sp"
+                android:padding="10dp"
+                android:background="@color/Black100"
+                android:textColor="@color/Black400"
+                android:inputType="date"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            android:layout_marginVertical="5dp"
+            >
+
+            <EditText
+                android:id="@+id/form_campania_monto_objetivo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Monto objetivo"
+                android:textSize="16sp"
+                android:padding="10dp"
+                android:background="@color/Black100"
+                android:textColor="@color/Black400"
+                android:inputType="numberDecimal"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            android:layout_marginVertical="5dp"
+            >
+
+            <EditText
+                android:id="@+id/form_campania_url_imagen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Url de la imagen a utilizar"
+                android:textSize="16sp"
+                android:padding="10dp"
+                android:background="@color/Black100"
+                android:textColor="@color/Black400"
+                android:inputType="text"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/form_campania_enviar"
+            android:text="Enviar solicitud de creación"
+            android:layout_marginVertical="25dp"
+            android:backgroundTint="@color/Primary950"
+            android:textColor="@color/white"
+            android:typeface="sans"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:contentDescription="TODO"
+        android:src="@drawable/sticker_tick"
+        android:padding="5dp"
+        android:cropToPadding="true"
+        android:id="@+id/form_campania_imagen_enviado"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/form_campania_titulo_enviado"
+        android:text="@string/form_titulo"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="26sp"
+        android:layout_marginVertical="15dp"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:layout_width="226dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/form_campania_texto_enviado"
+        android:text="@string/form_texto"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/Black400"
+        android:visibility="gone"
+        />
+
+</LinearLayout>
