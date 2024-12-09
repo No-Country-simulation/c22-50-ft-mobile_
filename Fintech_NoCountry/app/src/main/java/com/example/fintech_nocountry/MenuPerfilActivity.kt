@@ -46,10 +46,11 @@ class MenuPerfilActivity : AppCompatActivity() {
         strTitulo.setSpan(StyleSpan(Typeface.BOLD), 0, getString(R.string.menu_campanias).length, 0)
         aux.title = strTitulo
 
-        Picasso
-            .get()
-            .load(sharedPreferences.getString("imagen_perfil", "res/drawable/foto_perfil.xml"))
-            .into(imgPerfil)
+        if(sharedPreferences.getString("imagen_perfil", null) != null)
+            Picasso
+                .get()
+                .load(sharedPreferences.getString("imagen_perfil", null))
+                .into(imgPerfil)
 
         tvNombre.text = sharedPreferences.getString("nombre", " ")
 

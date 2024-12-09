@@ -109,9 +109,13 @@ class LoginActivity : AppCompatActivity() {
 
 
     private fun cargarSharedPreferences(usuario: UsuarioDTO){
-        sharedPreferences.edit().putInt("id", usuario.id!!).apply()
-        sharedPreferences.edit().putString("correo", usuario.correo!!).apply()
-        sharedPreferences.edit().putString("nombre", usuario.nombre!!).apply()
-        sharedPreferences.edit().putString("imagen_perfil", usuario.imagenPerfil!!).apply()
+        if(usuario.id != null)
+            sharedPreferences.edit().putInt("id", usuario.id).apply()
+        if(usuario.correo != null)
+            sharedPreferences.edit().putString("correo", usuario.correo).apply()
+        if(usuario.nombre != null)
+            sharedPreferences.edit().putString("nombre", usuario.nombre).apply()
+        if(usuario.imagenPerfil != null)
+            sharedPreferences.edit().putString("imagen_perfil", usuario.imagenPerfil).apply()
     }
 }
