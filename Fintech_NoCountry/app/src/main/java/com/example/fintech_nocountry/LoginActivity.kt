@@ -3,7 +3,6 @@ package com.example.fintech_nocountry
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -15,10 +14,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.fintech_nocountry.consumoApiRest.ICrudATablas
-import com.example.fintech_nocountry.consumoApiRest.RetrofitClient
-import com.example.fintech_nocountry.consumoApiRest.dto.MensajeDTO
-import com.example.fintech_nocountry.consumoApiRest.dto.TablaDTO
 import com.example.fintech_nocountry.consumoApiRest.dto.UsuarioDTO
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -71,10 +66,10 @@ class LoginActivity : AppCompatActivity() {
 
         btnLogin.setOnClickListener{
             if(etEmail.text.toString().isNotEmpty() && etContrasenia.text.toString().isNotEmpty()){
-                if(Correo.esEmailValido(etEmail.text.toString())) {
+                if(CorreoYUsuario.esEmailValido(etEmail.text.toString())) {
                     progressBar.visibility = View.VISIBLE
                     CoroutineScope(Dispatchers.IO).launch{
-                        val usuario = Correo.verificarDatos(etEmail.text.toString(), etContrasenia.text.toString())
+                        val usuario = CorreoYUsuario.verificarDatos(etEmail.text.toString(), etContrasenia.text.toString())
 
                         withContext(Dispatchers.Main){
                             if(usuario != null) {

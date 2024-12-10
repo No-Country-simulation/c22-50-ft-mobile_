@@ -54,6 +54,7 @@
         android:text="Contactar Emprendedor"
         android:layout_below="@id/detalle_nombre_emprendedor"
         android:layout_marginVertical="25dp"
+        android:background="@drawable/boton_redondeado"
         android:backgroundTint="@color/Primary950"
         android:textColor="@color/white"
         android:typeface="sans"/>

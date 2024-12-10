@@ -71,7 +71,9 @@
                 android:padding="10dp"
                 android:background="@color/Black100"
                 android:textColor="@color/Black400"
-                android:inputType="date"
+                android:inputType="none"
+                android:clickable="true"
+                android:focusable="false"
                 />
 
         </androidx.cardview.widget.CardView>
@@ -108,7 +110,7 @@
                 android:id="@+id/form_campania_url_imagen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Url de la imagen a utilizar"
+                android:hint="Url de la imagen a utilizar (Opcional)"
                 android:textSize="16sp"
                 android:padding="10dp"
                 android:background="@color/Black100"
@@ -124,11 +126,20 @@
             android:id="@+id/form_campania_enviar"
             android:text="Enviar solicitud de creación"
             android:layout_marginVertical="25dp"
+            android:background="@drawable/boton_redondeado"
             android:backgroundTint="@color/Primary950"
             android:textColor="@color/white"
             android:typeface="sans"/>
 
     </LinearLayout>
+
+    <ProgressBar
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/form_campania_progressbar"
+        android:indeterminate="true"
+        android:visibility="gone"
+        />
 
     <ImageView
         android:layout_width="100dp"
@@ -165,5 +176,6 @@
         android:textColor="@color/Black400"
         android:visibility="gone"
         />
+
 
 </LinearLayout>

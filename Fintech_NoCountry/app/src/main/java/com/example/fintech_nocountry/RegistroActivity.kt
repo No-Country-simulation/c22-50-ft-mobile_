@@ -60,17 +60,17 @@ class RegistroActivity : AppCompatActivity() {
                 || etCorreo.text.toString().isEmpty()
             )
                 Toast.makeText(this, "Deben completarse todos los campos", Toast.LENGTH_SHORT).show()
-            else if(!Correo.esEmailValido(etCorreo.text.toString()))
+            else if(!CorreoYUsuario.esEmailValido(etCorreo.text.toString()))
                 Toast.makeText(this, "Formato de correo inválido", Toast.LENGTH_SHORT).show()
             else if(etContrasenia.text.toString() != etRepetirContra.text.toString())
                 Toast.makeText(this, "La contraseñas no coinciden. Vuelva a ingresar", Toast.LENGTH_SHORT).show()
             else{
                 progressBar.visibility = View.VISIBLE
                 CoroutineScope(Dispatchers.IO).launch {
-                    if(Correo.datosRepetidos(etCorreo.text.toString(), this@RegistroActivity))
+                    if(CorreoYUsuario.datosRepetidos(etCorreo.text.toString(), this@RegistroActivity))
                         Log.e("DatosRepetidos", "Ya existe un usuario con ese correo")
                     else {
-                        Correo.insertarUsuario(
+                        CorreoYUsuario.insertarUsuario(
                             etCorreo.text.toString(),
                             etContrasenia.text.toString(),
                             etNombre.text.toString()
